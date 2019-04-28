@@ -150,7 +150,7 @@ function listEvents(auth, calID) {
                 var difftime_hours = Math.floor(difftime_millis / 3600000);
                 index = (Math.floor(difftime_millis/3600000) - 1);
                 strip.pixel(index).color("#ff5555");
-                strip.pixel(149-index).color("#ff555");
+                strip.pixel(149-index).color("#ff5555");
                 // console.log(index + " " + 149-index);
 
 				console.log(event.summary.substring(0, 30) + ": " + start + " to " + end + "\n" +
