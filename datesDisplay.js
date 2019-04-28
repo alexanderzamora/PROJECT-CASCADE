@@ -148,20 +148,19 @@ function listEvents(auth, calID) {
 				var startDateObj = moment(event.start.dateTime).toDate();
 				var difftime_millis = Math.abs(startDateObj.getTime() - currInstant);
                 var difftime_hours = Math.floor(difftime_millis / 3600000);
-                i = (Math.floor(difftime_millis/3600000) - 1);
-                // for(i; i < 4; i++) {
-                strip.pixel(i).color("#ff5555");
-                    // strip.pixel(149-i).color("#ff5555");
-                // }
-                strip.show();
+                index = (Math.floor(difftime_millis/3600000) - 1);
+                strip.pixel(index).color("#ff5555");
+                strip.pixel(149-index).color("#ff555");
+                // console.log(index + " " + 149-index);
 
 				console.log(event.summary.substring(0, 30) + ": " + start + " to " + end + "\n" +
                             "T Minus: " + difftime_hours + " hours \n" + 
-                            "LED: " + i + " and " + (149 - i));
+                            "LED: " + index + " and " + (149 - index));
 			});
 		} else {
 			console.log('No upcoming events found.');
-		}
+        }
+        strip.show();
 	});
 }
 
